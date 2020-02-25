@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 import os
-execfile(os.path.join('pagerduty', 'version.py'))
+exec(open(os.path.join('pagerduty', 'version.py')).read())
 
 try:
     long_description = open("README.md").read()

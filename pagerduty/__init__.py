@@ -4,7 +4,7 @@ try:
     import json
 except ImportError:
     import simplejson as json
-import urllib2
+import urllib
 
 from pagerduty.version import *
 
@@ -52,7 +52,7 @@ class PagerDuty(object):
         encoded_event = json.dumps(event)
         try:
             res = urllib2.urlopen(self.api_endpoint, encoded_event, self.timeout)
-        except urllib2.HTTPError, exc:
+        except urllib2.HTTPError as exc:
             if exc.code != 400:
                 raise
             res = exc
